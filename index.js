@@ -14,12 +14,11 @@ app.use(cors({ origin: '*' }))
 app.use(morgan('tiny'))
 app.use("/user", user);
 app.use("/business", business);
-const host = '0.0.0.0'; // Listen on all network interfaces
 
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-app.listen(port, host, () => {
+app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
